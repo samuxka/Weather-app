@@ -1,325 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Weather App in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyView.io</title>
-    <meta name="title" content="SkyView.io">
-    <meta name="descrition" content="SkyView.io is weather app made by samuxka">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <script src="assets/js/app.js" type="module"></script>
-    <script src="assets/js/route.js" type="module"></script>
+    <!-- Linking BoxIcon for Icon -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    
-    <header class="header">
-        <div class="container">
-
-            <a href="" class="logo">
-                <img src="assets/images/logo.png" alt="logo" width="364" height="58">
-            </a>
-
-            <div class="search-view" data-search-view>
-
-                <div class="search-wrapper">
-                    <input type="search" name="search" placeholder="search..." autocomplete="off" class="search-field" data-search-field>
-                    
-                    <span class="m-icon"><i class="uil uil-search"></i></span>
-
-                    <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggle="">
-                        <span class="m-icon"><i class="uil uil-arrow-left"></i></span>
-                    </button>
-                </div>
-
-                <div class="search-result" data-search-result>
-                    <ul class="view-list" data-search-list>
-                       
-                        <li class="view-item">
-                            <span class="m-icon"><i class="uil uil-map-marker"></i></span>
-    
-                            <div>
-                                <p class="item-title">London</p>
-                               
-                                <p class="label-2 item-subtitle">State of London, GB</p>
-                            </div>
-    
-                            <a href="#" class="item-link has-state" data-search-toggler></a>
-                        </li>
-    
-    
-                    </ul>
-                </div>
+    <div class="wrapper">
+        <header><i class='bx bx-left-arrow-alt'></i>Weather App</header>
+        <section class="input-part">
+            <p class="info-txt"></p>
+            <div class="content">
+                <input type="text" spellcheck="false" placeholder="Enter city name" required>
+                <div class="separator"></div>
+                <button>Get Device Location</button>
             </div>
-
-            <div class="header-actions">
-
-                <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
-                    <span class="m-icon icon"><i class="uil uil-search"></i></span>
-                </button>
-
-                <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
-                    <span class="m-icon"><i class="uil uil-map"></i></span>
- 
-                    <span class="span">Current Location</span>
-                </a>
-
+        </section>
+        <section class="weather-part">
+            <img src="img/02d.png" alt="Weather Icon">
+            <div class="temp">
+                <span class="numb">_</span>
+                <span class="deg">°</span>C
             </div>
-
-        </div>
-    </header>
-
-    <main>
-        <article class="container">
-            
-            <div class="container-left">
-
-                <section class="section current-weather" aria-label data-search-weather>
-                    <div class="card card-lg current-weather-card">
-                        <h2 class="title-2 card-title">Now</h2>
-
-                        <div class="weapper">
-                            <p class="heading">25&deg;c</p>
-
-                            <img src="./assets/images/weather_icons/01d.png" width="64px" height="64px" alt="Overcast Clouds" class="weather-icon">
+            <div class="weather">_ _</div>
+            <div class="location">
+                <i class='bx bx-map'></i>
+                <span>_, _</span>
+            </div>
+            <div class="bottom-details">
+                <div class="column feels">
+                    <i class='bx bxs-thermometer'></i>
+                    <div class="details">
+                        <div class="temp">
+                            <span class="numb-2">_</span>
+                            <span class="deg">°</span>C
                         </div>
-
-                        <p class="body-3">Overcast Clouds</p>
-
-                        <ul class="meta-list">
-
-                            <li class="meta-item">
-                                <span class="m-icon"><i class="uil uil-calender"></i></span>
-
-                                <p class="titke-3 meta-text">Thursday 16, Feb</p>
-                            </li>
-                            
-                            <li class="meta-item">
-                                <span class="m-icon"><i class="uil uil-map-marker"></i></span>
-
-                                <p class="titke-3 meta-text">London, GB</p>
-                            </li>
-
-                        </ul>
-
+                        <p>Feels like</p>
                     </div>
-                </section>
-
-
-                <section class="section forest" aria-labelledby="forecast-label" data-5-day-forest>
-                    <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
-
-                    <div class="card card-lg forecast-card">
-                        <ul>
-                            <li class="card-item">
-                                
-                                <div class="icon-wrapper">
-                                    <img src="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                    <span class="span">
-                                        <p class="title-2">25</p>
-                                    </span>
-                                </div>
-
-                                <p class="label-1">17 feb</p>
-
-                                <p class="label-1">Friday</p>
-
-                            </li>
-                            <li class="card-item">
-
-                                <div class="icon-wrapper">
-                                    <img src="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                    <span class="span">
-                                        <p class="title-2">25</p>
-                                    </span>
-                                </div>
-
-                                <p class="label-1">17 feb</p>
-
-                                <p class="label-1">Friday</p>
-
-                            </li>
-                            <li class="card-item">
-
-                                <div class="icon-wrapper">
-                                    <img src="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                    <span class="span">
-                                        <p class="title-2">25</p>
-                                    </span>
-                                </div>
-
-                                <p class="label-1">17 feb</p>
-
-                                <p class="label-1">Friday</p>
-
-                            </li>
-                            <li class="card-item">
-
-                                <div class="icon-wrapper">
-                                    <img src="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                    <span class="span">
-                                        <p class="title-2">25</p>
-                                    </span>
-                                </div>
-
-                                <p class="label-1">17 feb</p>
-
-                                <p class="label-1">Friday</p>
-
-                            </li>
-                            <li class="card-item">
-
-                                <div class="icon-wrapper">
-                                    <img src="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                    <span class="span">
-                                        <p class="title-2">25</p>
-                                    </span>
-                                </div>
-
-                                <p class="label-1">17 feb</p>
-
-                                <p class="label-1">Friday</p>
-
-                            </li>
-                        </ul>
+                </div>
+                <div class="column humidity">
+                    <i class='bx bxs-droplet-half'></i>
+                    <div class="details">
+                        <span>_</span>
+                        <p>Humidity</p>
                     </div>
-                </section>
+                </div>
             </div>
+        </section>
+    </div>
 
-            <div class="content-right">
-                <section class="section highlights" aria-labelledby="highlights-label" data-highlight>
-                    <div class="card card-lg">
-                        <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
-                    
-                        <div class="highlights-list">
-                            <div class="card card-sm highlight-card one">
-                                <h3 class="title-3">Air Quality Index</h3>
-
-                                <div class="wrapper">
-                                    <span class="m-icon"><i class="uil uil-wind"></i></span>
-
-                                    <ul class="card-list">
-                                        <li class="card-item">
-                                            <p class="title-1">23.3</p>
-
-                                            <p class="label-1">PM<sub>2.5</sub></p>
-                                        </li>
-                                        <li class="card-item">
-                                            <p class="title-1">23.3</p>
-
-                                            <p class="label-1">PM<sub>2.5</sub></p>
-                                        </li>
-                                        <li class="card-item">
-                                            <p class="title-1">23.3</p>
-
-                                            <p class="label-1">PM<sub>2.5</sub></p>
-                                        </li>
-                                        <li class="card-item">
-                                            <p class="title-1">23.3</p>
-
-                                            <p class="label-1">PM<sub>2.5</sub></p>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
-                                <span class="badge aqi-1 label-1" title="aqi message">
-                                    Good
-                                </span>
-
-
-
-                            </div>
-
-                            <div class="card card-sm highlight-card two">
-
-                                <h3 class="title-3">Sunrise & Sunset</h3>
-
-                                <div class="card-list">
-
-                                    <div class="card-item">
-                                        <span><i class="uil uil-sun"></i></span>
-
-                                        <div>
-                                            <p class="label-1">Sunrise</p>
-
-                                            <p class="title-1">6:30 AM</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-item">
-                                        <span><i class="uil uil-moon"></i></span>
-
-                                        <div>
-                                            <p class="label-1">Sunset</p>
-
-                                            <p class="title-1">5:54 PM</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card card-sm highlight-card">
-                                <h3 class="title-3">Humidity</h3>
-
-                                <div class="wrapper">
-                                    <span class="m-icon"><i class="uil uil-tear"></i></span>
-
-                                    <p class="title-1">35<sup>%</sup></p>
-                                </div>
-                            </div>
-
-                            <div class="card card-sm highlight-card">
-                                <h3 class="title-3">Pressure</h3>
-
-                                <div class="wrapper">
-                                    <span class="m-icon"><i class="uil uil-water"></i></i></span>
-
-                                    <p class="title-1">1052<sub>hPa</sub></p>
-                                </div>
-                            </div>
-
-                            <div class="card card-sm highlight-card">
-                                <h3 class="title-3">Visibility</h3>
-
-                                <div class="wrapper">
-                                    <span class="m-icon"><i class="uil uil-eye"></i></span>
-
-                                    <p class="title-1">10<sub>km</sub></p>
-                                </div>
-                            </div>
-
-                            <div class="card card-sm highlight-card">
-                                <h3 class="title-3">Feels Like</h3>
-
-                                <div class="wrapper">
-                                    <span class="m-icon"><i class="uil uil-temperature"></i></span>
-
-                                    <p class="title-1">25&deg;<sup>c</sup></p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-            </div>
-        
-        </article>
-    </main>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
